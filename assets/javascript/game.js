@@ -72,31 +72,65 @@ $("button").on("click", function() {
        // Looping through each result item
        for (var i = 0; i < results.length; i++) {
 
-         // Creating and storing a div tag
-         var topicsDiv = $("<div>");
+/*
+<div class="col-4">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 
-         // Creating a paragraph tag with the result item's rating
-         var r = $("<p>").text("Rating: " + results[i].rating);
+*/
 
-         // Creating a paragraph tag with the result item's title
-         var t = $("<p>").text("Title: " + results[i].title);
+//Create Card's outer wrapper
+var topics_outer_wrapper = $("<div>").attr("class","col-4 border border-secondary m-1 p-0");
 
-         // Creating and storing an image tag
-         var topicImage=$('<img>').attr({
-          src: results[i].images.fixed_width_still.url,
-          'data-still': results[i].images.fixed_width_still.url,
-          'data-animate': results[i].images.fixed_width.url,
-          'data-state': "still",
-          class: "gif",
-        });
-         // Appending the paragraph and image tag to the animalDiv
-         topicsDiv.append(topicImage);
-         topicsDiv.append(t);
-         topicsDiv.append(r);
+   var topicImage=$('<img>').attr({
+    class: "card-img-top gif",
+    src: results[i].images.fixed_width_still.url,
+    'data-still': results[i].images.fixed_width_still.url,
+    'data-animate': results[i].images.fixed_width.url,
+    'data-state': "still",
+    alt: "Card image cap",
+  }); 
 
-         // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-         $("#gifs-appear-here").prepend(topicsDiv);
-       }
+var topics_card_body = $("<div>").attr("class","card-body pr-1 pl-1");
+
+var topics_card_title = $("<h5>").attr("class","card-title").text("Card Title");
+
+topics_outer_wrapper.append(topicImage);
+topics_outer_wrapper.append(topics_card_body);
+topics_outer_wrapper.append(topics_card_title);
+
+$("#gifs-appear-here").prepend(topics_outer_wrapper);
+
+      //    // Creating and storing a div tag
+      //    var topicsDiv = $("<div>");
+
+      //    // Creating a paragraph tag with the result item's rating
+      //    var r = $("<p>").text("Rating: " + results[i].rating);
+
+      //    // Creating a paragraph tag with the result item's title
+      //    var t = $("<p>").text("Title: " + results[i].title);
+
+      //    // Creating and storing an image tag
+      //    var topicImage=$('<img>').attr({
+      //     src: results[i].images.fixed_width_still.url,
+      //     'data-still': results[i].images.fixed_width_still.url,
+      //     'data-animate': results[i].images.fixed_width.url,
+      //     'data-state': "still",
+      //     class: "gif",
+      //   });
+      //    // Appending the paragraph and image tag to the topicsDiv
+      //    topicsDiv.append(topicImage);
+      //    topicsDiv.append(t);
+      //    topicsDiv.append(r);
+
+      //    // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+      //    $("#gifs-appear-here").prepend(topicsDiv);
+        }
      });
 
      $("#gifs-appear-here").on("click", ".gif", function() {
