@@ -372,6 +372,9 @@ display: block;
 }
 
 /* Cards Action Button */
+.card {
+  background-color: #1c1c1c; 
+}
 .btn-circle {
   width: 30px;
   height: 30px;
