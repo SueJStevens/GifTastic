@@ -188,7 +188,7 @@ $(function () {
     for (var i=0; i<favids.length; i++) {
       var giffyID = favids[i];
 
-    var queryURL = "http://api.giphy.com/v1/gifs/" + giffyID + "?api_key=fqno4evS4qDSIgn9pivdZEJIGuxyhgek"
+    var queryURL = "https://api.giphy.com/v1/gifs/" + giffyID + "?api_key=fqno4evS4qDSIgn9pivdZEJIGuxyhgek"
     console.log(queryURL);
 
     // Performing an AJAX request with the queryURL
